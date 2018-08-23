@@ -1,0 +1,44 @@
+plugins {
+    id "application"
+    id "java"
+}
+
+sourceCompatibility = 1.8
+
+mainClassName = "no.dervis.learningjava.labs.basics.Strings"
+
+apply from: "${rootDir}/common.gradle"
+
+
+// https://stackoverflow.com/a/46938169
+task("run-coin", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.coins.CoinToss'
+    classpath = sourceSets.main.runtimeClasspath
+    //systemProperty 'env', 'envValue'
+    //args ''
+}
+
+task("run-objects", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.basics.objects.Objects'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task("run-integers", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.basics.Integers'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task("run-strings", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.basics.Strings'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task("run-loops", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.basics.loops.Loops'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task("run-parkinghouse", dependsOn: 'classes', type: JavaExec) {
+    main = 'no.dervis.learningjava.labs.parking_house.Parking'
+    classpath = sourceSets.main.runtimeClasspath
+}

@@ -1,0 +1,10 @@
+
+allprojects {
+    group 'no.dervis.learningjava'
+    version '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+}
