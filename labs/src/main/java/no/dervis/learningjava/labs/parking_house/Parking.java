@@ -1,5 +1,7 @@
 package no.dervis.learningjava.labs.parking_house;
 
+import java.time.Duration;
+
 import static no.dervis.learningjava.labs.parking_house.LicensePlateBuilder.forCountry;
 
 public class Parking {
@@ -15,5 +17,20 @@ public class Parking {
         carParking.registerParking(mercedes);
         carParking.registerParking(bmw);
         //carParking.registerParking(truck);
+
+        wait(1);
+
+        carParking.removeFromParking(mercedes);
+    }
+
+    public static void wait(int minutes) {
+        long start = System.currentTimeMillis();
+        while (Duration.ofMillis(System.currentTimeMillis() - start).toMinutes() < minutes) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

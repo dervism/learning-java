@@ -9,7 +9,9 @@ public interface ParkingHouse {
 
     ParkingTicket registerParking(Vehicle vehicle);
 
-    Vehicle removeFromParking(ParkingTicket parkingTicket);
+    boolean removeFromParking(Vehicle vehicle);
 
-    int availableSpotLeft();
+    boolean availableSpotLeft();
+
+    int availableSpots();
 }
