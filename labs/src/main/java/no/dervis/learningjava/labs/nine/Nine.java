@@ -1,8 +1,6 @@
 package no.dervis.learningjava.labs.nine;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -14,43 +12,40 @@ public class Nine {
     }
 
     public static void calcNine() {
+        int multiplier = 9;
+
         IntStream.rangeClosed(1, 100).forEach(i -> {
             StringBuilder delta = new StringBuilder();
-            delta.append("\n");
-            reduce(9 * i, delta);
+            int multiplied = multiplier * i;
+            delta.append("\n").append(multiplier + " * " + i + " = " + multiplied + " > ");
+            reduce(multiplied, delta);
             System.out.println(delta);
         });
     }
 
-    public static int reduce(int m, StringBuilder delta) {
+    public static int reduce(int partialResult, StringBuilder delta) {
 
-        if (String.valueOf(m).length() == 1) return m;
+        if (String.valueOf(partialResult).length() == 1) return partialResult;
 
-        String[] s = String.valueOf(m).split("");
+        String[] chars = String.valueOf(partialResult).split("");
 
-        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < chars.length-1; i++) delta.append(chars[i]).append(" + ");
+        delta.append(chars[chars.length-1]).append(" = ");
 
-        for (String d : s) list.add(Integer.valueOf(d));
-        Iterator<Integer> iter = list.iterator();
+        List<String> strings = Arrays.asList(chars);
+        List<Integer> ints = strings.stream()
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
 
-        List<String> strings = Arrays.asList(s);
-        //strings.stream().mapToInt(Integer::parseInt).collect(Collectors.toList())
 
-        while (iter.hasNext()) {
-            if (iter.hasNext()) delta.append(iter.next()).append(" + ");
-            else delta.append(iter.next()).append(" = ");
-        }
-
-        Integer deltaResult = list.stream()
+        Integer deltaResult = ints.stream()
                 .reduce((i1, i2) -> i1 + i2)
                 .orElse(0);
 
-        delta.append(deltaResult).append(" - ");
+        if (String.valueOf(deltaResult).length() == 1) delta.append(deltaResult);
+        else delta.append(deltaResult).append(" -> ");
 
-        return reduce(
-                deltaResult
-        , delta);
+        return reduce(deltaResult , delta);
     }
-
 
 }
