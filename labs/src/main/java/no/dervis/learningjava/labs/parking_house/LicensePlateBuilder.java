@@ -2,7 +2,8 @@ package no.dervis.learningjava.labs.parking_house;
 
 import java.util.Random;
 
-import static no.dervis.learningjava.labs.parking_house.LicensePlate.*;
+import static no.dervis.learningjava.labs.parking_house.LicensePlate.NORWAY;
+import static no.dervis.learningjava.labs.parking_house.LicensePlate.POLAND;
 
 public class LicensePlateBuilder {
 
@@ -46,6 +47,10 @@ public class LicensePlateBuilder {
         }
 
         return new LicensePlateBuilder(buffer.toString());
+    }
+
+    public static LicensePlateNumber random() {
+        return forCountry(NORWAY).build();
     }
 
     public LicensePlateNumber build() {
