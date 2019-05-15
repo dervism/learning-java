@@ -13,12 +13,12 @@ public class Lambda {
     }
 
     // lambda with a closure
-    Predicate<Employee> paidMore(int amount) {
+    private Predicate<Employee> paidMore(int amount) {
         return employee -> employee.salary > amount;
     }
 
     // lambda with a closure
-    List<Employee> highPaidLambdaClosure(List<Employee> emps) {
+    private List<Employee> highPaidLambdaClosure(List<Employee> emps) {
         int threshold = 150;
 
         return emps.stream()
@@ -27,13 +27,13 @@ public class Lambda {
     }
 
     // only lambda
-    List<Employee> highPaidLambda(List<Employee> emps) {
+    private List<Employee> highPaidLambda(List<Employee> emps) {
         return emps.stream()
                 .filter(e -> e.salary > 150)
                 .collect(Collectors.toList());
     }
 
-    public void testLambdas() {
+    private void testLambdas() {
 
         Employee employeeHighPaid = new Employee(200);
         Employee employeeLowPaid = new Employee(100);
@@ -44,6 +44,7 @@ public class Lambda {
         System.out.println("Is paid high: " + isPaidHigh.test(employeeLowPaid));
 
         System.out.println(highPaidLambdaClosure(List.of(employeeHighPaid, employeeLowPaid)));
+        System.out.println(highPaidLambda(List.of(employeeHighPaid, employeeLowPaid)));
 
     }
 
