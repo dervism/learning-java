@@ -4,22 +4,30 @@ import java.util.function.BinaryOperator;
 
 public class Composition {
 
-    private BinaryOperator<Double> divide = (a, b) -> a / b;
+    private final static BinaryOperator<Double> divide = (a, b) -> a / b;
 
-    private BinaryOperator<Double> multiply = (a, b) -> a * b;
-
-    private BinaryOperator<Double> percentOf = (a, b) -> multiply.apply(divide.apply(a, b), 100d);
+    private final static BinaryOperator<Double> multiply = (a, b) -> a * b;
 
 
     private void testLambdaCalc() {
 
-        System.out.println( percentOf.apply(50d, 200d) ); // should print 25%
+        // creates a BinaryOperator and applies two numbers
+        System.out.println( percentOf().apply(50d, 200d) );
 
-        // andThen, caller first, parameter second
-        System.out.println(
-                divide.andThen(a -> a * 100).apply(50d, 200d)
-        );
+        // composition using andThen and a lambda
+        System.out.println( divide.andThen(a -> a * 100).apply(50d, 200d) );
 
+        //
+        System.out.println(percentOf(50, 200));
+
+    }
+
+    static <T extends Number> Double percentOf(T x, T y) {
+        return divide.andThen(a -> a * 100).apply(x.doubleValue(), y.doubleValue());
+    }
+
+    BinaryOperator<Double> percentOf() {
+        return (a, b) -> multiply.apply(divide.apply(a, b), 100d);
     }
 
 

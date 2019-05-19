@@ -20,16 +20,16 @@ public class Currying {
         );
     }
 
-
-    public static void main(String[] args) {
-        new Currying().testLambdaCalc();
-    }
-
     @FunctionalInterface
     interface ExtendedBinaryOperator<T> extends BinaryOperator<T> {
         default Function<T, T> curry(T t) {
             return u -> apply(t, u);
         }
+    }
+
+
+    public static void main(String[] args) {
+        new Currying().testLambdaCalc();
     }
 }
 
