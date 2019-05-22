@@ -1,10 +1,13 @@
 package no.dervis.learningjava.labs.basics.functional;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Lambda {
+
+    double tax = 0.20;
 
     class Employee {
         private int salary;
@@ -15,6 +18,12 @@ public class Lambda {
     // lambda with a closure
     private Predicate<Employee> paidMore(int amount) {
         return employee -> employee.salary > amount;
+    }
+
+    private Function<Employee, Double> salary() {
+        Function<Employee, Double> func = employee -> employee.salary * (1 - tax);
+        tax = 0.9999;
+        return func;
     }
 
     // lambda with a closure
@@ -46,6 +55,7 @@ public class Lambda {
         System.out.println(highPaidLambdaClosure(List.of(employeeHighPaid, employeeLowPaid)));
         System.out.println(highPaidLambda(List.of(employeeHighPaid, employeeLowPaid)));
 
+        System.out.println(salary().apply(employeeHighPaid));
     }
 
 
