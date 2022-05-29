@@ -1,6 +1,5 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
-import no.dervis.learningjava.labs.bank.BankAccountNumber;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
 
 import java.math.BigDecimal;

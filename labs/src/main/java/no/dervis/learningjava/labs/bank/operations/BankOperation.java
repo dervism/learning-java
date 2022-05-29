@@ -1,4 +1,4 @@
-package no.dervis.learningjava.labs.bank;
+package no.dervis.learningjava.labs.bank.operations;
 
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
 

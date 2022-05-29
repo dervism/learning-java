@@ -1,8 +1,4 @@
-package no.dervis.learningjava.labs.bank;
-
-import no.dervis.learningjava.labs.bank.banking.Asset;
-import no.dervis.learningjava.labs.bank.banking.Capital;
-import no.dervis.learningjava.labs.bank.banking.Liability;
+package no.dervis.learningjava.labs.bank.banking;
 
 import java.math.BigDecimal;
 import java.util.List;

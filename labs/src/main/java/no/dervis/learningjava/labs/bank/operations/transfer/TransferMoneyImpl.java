@@ -1,7 +1,7 @@
 package no.dervis.learningjava.labs.bank.operations.transfer;
 
-import no.dervis.learningjava.labs.bank.BankOperation;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
+import no.dervis.learningjava.labs.bank.operations.BankOperation;
 import no.dervis.learningjava.labs.bank.operations.deposit.DirectDepositImpl;
 import no.dervis.learningjava.labs.bank.operations.deposit.DirectDepositInput;
 import no.dervis.learningjava.labs.bank.operations.outputs.BooleanOutput;

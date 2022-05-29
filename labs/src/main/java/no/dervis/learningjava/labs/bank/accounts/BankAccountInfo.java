@@ -1,6 +1,6 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
-import no.dervis.learningjava.labs.bank.BankCustomer;
+import no.dervis.learningjava.labs.bank.customer.BankCustomer;
 
 import java.time.LocalDateTime;
 

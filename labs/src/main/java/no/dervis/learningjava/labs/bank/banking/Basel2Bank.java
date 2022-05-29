@@ -1,7 +1,6 @@
 package no.dervis.learningjava.labs.bank.banking;
 
-import no.dervis.learningjava.labs.bank.AbstractBank;
-import no.dervis.learningjava.labs.bank.BankAccount;
+import no.dervis.learningjava.labs.bank.accounts.BankAccount;
 
 import java.math.BigDecimal;
 

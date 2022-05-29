@@ -1,7 +1,7 @@
 package no.dervis.learningjava.labs.bank.operations.withdraw;
 
-import no.dervis.learningjava.labs.bank.BankOperation;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
+import no.dervis.learningjava.labs.bank.operations.BankOperation;
 import no.dervis.learningjava.labs.bank.operations.outputs.BooleanOutput;
 
 import java.util.Objects;

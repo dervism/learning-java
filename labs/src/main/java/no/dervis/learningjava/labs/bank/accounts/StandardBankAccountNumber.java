@@ -1,7 +1,5 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
-import no.dervis.learningjava.labs.bank.BankAccountNumber;
-
 public class StandardBankAccountNumber implements BankAccountNumber {
 
     private final String iban;

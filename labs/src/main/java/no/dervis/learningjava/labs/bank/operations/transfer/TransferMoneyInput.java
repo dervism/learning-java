@@ -1,6 +1,6 @@
 package no.dervis.learningjava.labs.bank.operations.transfer;
 
-import no.dervis.learningjava.labs.bank.BankAccount;
+import no.dervis.learningjava.labs.bank.accounts.BankAccount;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,6 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
-import no.dervis.learningjava.labs.bank.BankAccount;
-import no.dervis.learningjava.labs.bank.BankAccountNumber;
-import no.dervis.learningjava.labs.bank.BankCustomer;
+import no.dervis.learningjava.labs.bank.customer.BankCustomer;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
 
 import java.lang.reflect.InvocationTargetException;
