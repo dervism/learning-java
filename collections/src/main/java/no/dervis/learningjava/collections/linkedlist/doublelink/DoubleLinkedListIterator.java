@@ -14,7 +14,7 @@ public class DoubleLinkedListIterator<T> implements Iterator<T> {
 
     private DoubleLinkedItem<T> pointer;
     private int index;
-    private int size;
+    private final int size;
 
     public DoubleLinkedListIterator(DoubleLinkedList<T> list) {
         this.pointer = list.first();

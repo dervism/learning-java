@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 
 public class WithDrawMoneyInput {
 
-    private BigDecimal amount;
+    private final BigDecimal amount;
 
-    private BankAccount fromBankAccount;
+    private final BankAccount fromBankAccount;
 
     public WithDrawMoneyInput(BigDecimal amount, BankAccount fromBankAccount) {
         this.amount = amount;

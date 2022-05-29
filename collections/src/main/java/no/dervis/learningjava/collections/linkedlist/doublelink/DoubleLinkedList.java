@@ -150,7 +150,7 @@ public class DoubleLinkedList<T> implements Iterable<T> {
     }
 
     public static class DoubleLinkedItem<I> {
-        private I data;
+        private final I data;
         private DoubleLinkedItem<I> next;
         private DoubleLinkedItem<I> previous;
 

@@ -32,8 +32,8 @@ public enum LicensePlate {
     BRAZIL("br", "LLL.DDDD"),
     ARGENTINA("ar", "LL DDD LL");
 
-    private String pattern;
-    private String countryCode;
+    private final String pattern;
+    private final String countryCode;
 
     LicensePlate(String countryCode, String pattern) {
         this.pattern = pattern;

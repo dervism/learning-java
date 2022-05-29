@@ -2,7 +2,7 @@ package no.dervis.learningjava.collections.linkedlist.complex.headtail;
 
 public class Node implements Link {
 
-    private Object object;
+    private final Object object;
 
     private Link next;
 

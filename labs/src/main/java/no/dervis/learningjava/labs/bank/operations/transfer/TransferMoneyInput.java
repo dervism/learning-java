@@ -6,11 +6,11 @@ import java.math.BigDecimal;
 
 public class TransferMoneyInput {
 
-    private BigDecimal amount;
+    private final BigDecimal amount;
 
-    private BankAccount transferFromAccount;
+    private final BankAccount transferFromAccount;
 
-    private BankAccount transferToAccount;
+    private final BankAccount transferToAccount;
 
     public TransferMoneyInput(BigDecimal amount, BankAccount transferFromAccount, BankAccount transferToAccount) {
         this.amount = amount;

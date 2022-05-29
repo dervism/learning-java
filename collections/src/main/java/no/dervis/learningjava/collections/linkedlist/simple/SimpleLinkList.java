@@ -79,7 +79,7 @@ public class SimpleLinkList {
     }
 
     private class Node {
-        private Object object;
+        private final Object object;
         private Node next;
 
         public Node(Object object, Node next) {

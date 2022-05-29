@@ -2,7 +2,7 @@ package no.dervis.learningjava.collections.linkedlist.complex.headtail_generics;
 
 public class GenericNode<T> implements GenericLink<T> {
 
-    private T object;
+    private final T object;
 
     private GenericLink<T> next;
 

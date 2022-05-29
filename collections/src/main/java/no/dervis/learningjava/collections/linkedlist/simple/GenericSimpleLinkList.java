@@ -58,7 +58,7 @@ public class GenericSimpleLinkList<T> {
     }
 
     public class Item<T> {
-        private T object;
+        private final T object;
         private Item<T> next;
 
         public Item(T object, Item<T> next) {

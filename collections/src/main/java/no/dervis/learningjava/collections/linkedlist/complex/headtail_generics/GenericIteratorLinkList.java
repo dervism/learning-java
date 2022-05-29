@@ -12,7 +12,7 @@ public class GenericIteratorLinkList<T> implements Iterator<T> {
 
     private GenericLink<T> pointer;
     private int index;
-    private int size;
+    private final int size;
 
     public GenericIteratorLinkList(GenericLinkList<T> list) {
         this.pointer = list.first();

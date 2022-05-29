@@ -2,7 +2,7 @@ package no.dervis.learningjava.labs.bank.operations.outputs;
 
 public class BooleanOutput {
 
-    private boolean success;
+    private final boolean success;
 
     private Exception exception;
 

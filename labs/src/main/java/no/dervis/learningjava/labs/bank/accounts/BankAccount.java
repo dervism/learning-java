@@ -2,6 +2,7 @@ package no.dervis.learningjava.labs.bank.accounts;
 
 import no.dervis.learningjava.labs.bank.banking.Liability;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
+import no.dervis.learningjava.labs.bank.rates.AnnualPercentageYield;
 
 import java.math.BigDecimal;
 
@@ -11,7 +12,7 @@ import java.math.BigDecimal;
 
 public interface BankAccount extends Liability {
 
-    enum TYPE {
+    enum BankAccountType {
         STANDARD, SAVINGS, CREDIT
     }
 
@@ -23,4 +24,7 @@ public interface BankAccount extends Liability {
 
     boolean withDraw(BigDecimal amount) throws BankOperationException;
 
+    BankAccountType getType();
+
+    AnnualPercentageYield getAPY();
 }

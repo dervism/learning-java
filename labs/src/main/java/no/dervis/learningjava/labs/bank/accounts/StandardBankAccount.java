@@ -3,6 +3,7 @@ package no.dervis.learningjava.labs.bank.accounts;
 import no.dervis.learningjava.labs.bank.banking.Cash;
 import no.dervis.learningjava.labs.bank.customer.BankCustomer;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
+import no.dervis.learningjava.labs.bank.rates.AnnualPercentageYield;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -18,17 +19,11 @@ public class StandardBankAccount implements BankAccount {
 
     protected BigDecimal account;
 
-
-    public StandardBankAccount(BankAccountNumber bankAccountNumber) {
-        this(bankAccountNumber, null);
-    }
-
     public StandardBankAccount(BankAccountNumber bankAccountNumber, BankCustomer customer) {
-        this.bankAccountInfo = new BankAccountInfo(customer, 0.005);
+        this.bankAccountInfo = new BankAccountInfo(customer, AnnualPercentageYield.of(0.005));
         this.bankAccountNumber = bankAccountNumber;
         this.activity = new ArrayList<>();
-        this.account = new BigDecimal(0.0D);
-
+        this.account = BigDecimal.valueOf(0.0D);
     }
 
     @Override
@@ -54,6 +49,20 @@ public class StandardBankAccount implements BankAccount {
         activity.add(new Cash(amount.negate()));
 
         return true;
+    }
+
+    @Override
+    public BankAccountType getType() {
+        return BankAccountType.STANDARD;
+    }
+
+    @Override
+    public AnnualPercentageYield getAPY() {
+        return bankAccountInfo.getAnnualPercentageYield();
+    }
+
+    public void setAPY(AnnualPercentageYield annualPercentageYield) {
+        this.bankAccountInfo.setAnnualPercentageYield(annualPercentageYield);
     }
 
     public static StandardBankAccount random() {

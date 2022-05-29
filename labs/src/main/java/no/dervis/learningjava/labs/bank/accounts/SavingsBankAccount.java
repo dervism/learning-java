@@ -1,24 +1,34 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
+import no.dervis.learningjava.labs.bank.customer.BankCustomer;
 import no.dervis.learningjava.labs.bank.faults.BankOperationException;
+import no.dervis.learningjava.labs.bank.rates.AnnualPercentageYield;
 
 import java.math.BigDecimal;
 
 public class SavingsBankAccount extends StandardBankAccount {
 
-    public final BigDecimal ANNUAL_INTEREST_RATE = BigDecimal.valueOf(0.5);
+    public SavingsBankAccount(BankAccountNumber bankAccountNumber, BankCustomer customer) {
+        super(bankAccountNumber, customer);
+    }
 
-    public SavingsBankAccount(BankAccountNumber bankAccountNumber) {
-        super(bankAccountNumber);
+    public SavingsBankAccount(BankAccountNumber bankAccountNumber, BankCustomer customer, AnnualPercentageYield yieldRate) {
+        super(bankAccountNumber, customer);
+        setAPY(yieldRate);
     }
 
     public boolean payInterestsAnnual() throws BankOperationException {
-        BigDecimal interests = getDepositAmount().multiply(ANNUAL_INTEREST_RATE);
+        BigDecimal interests = getDepositAmount().multiply(getAPY().interestRateAnnual());
         return deposit(interests);
     }
 
     public boolean payInterestsMonthly() throws BankOperationException {
-        BigDecimal interests = getDepositAmount().multiply(BigDecimal.valueOf(ANNUAL_INTEREST_RATE.doubleValue() / 12D));
+        BigDecimal interests = getDepositAmount().multiply(getAPY().monthly());
         return deposit(interests);
+    }
+
+    @Override
+    public BankAccountType getType() {
+        return BankAccountType.SAVINGS;
     }
 }

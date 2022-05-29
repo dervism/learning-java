@@ -1,6 +1,7 @@
 package no.dervis.learningjava.labs.bank.accounts;
 
 import no.dervis.learningjava.labs.bank.customer.BankCustomer;
+import no.dervis.learningjava.labs.bank.rates.AnnualPercentageYield;
 
 import java.time.LocalDateTime;
 
@@ -8,20 +9,20 @@ public class BankAccountInfo {
 
     private BankCustomer accountOwner;
 
-    private LocalDateTime dateCreated;
+    private final LocalDateTime dateCreated;
 
     private LocalDateTime dateEnded;
 
-    private double interestRateAnno;
+    private AnnualPercentageYield annualPercentageYield;
 
     public BankAccountInfo() {
-        this(null, 0.5);
+        this(null, AnnualPercentageYield.of(0.005*12));
     }
 
-    public BankAccountInfo(BankCustomer accountOwner, double interestRateAnno) {
+    public BankAccountInfo(BankCustomer accountOwner, AnnualPercentageYield annualPercentageYield) {
         this.accountOwner = accountOwner;
         this.dateCreated = LocalDateTime.now();
-        this.interestRateAnno = interestRateAnno;
+        this.annualPercentageYield = annualPercentageYield;
     }
 
     public BankCustomer getAccountOwner() {
@@ -44,12 +45,12 @@ public class BankAccountInfo {
         this.dateEnded = dateEnded;
     }
 
-    public double getInterestRateAnno() {
-        return interestRateAnno;
+    public AnnualPercentageYield getAnnualPercentageYield() {
+        return annualPercentageYield;
     }
 
-    public void setInterestRateAnno(double interestRateAnno) {
-        this.interestRateAnno = interestRateAnno;
+    public void setAnnualPercentageYield(AnnualPercentageYield annualPercentageRate) {
+        this.annualPercentageYield = annualPercentageRate;
     }
 
     @Override
@@ -58,7 +59,7 @@ public class BankAccountInfo {
                 "accountOwner=" + accountOwner +
                 ", dateCreated=" + dateCreated +
                 ", dateEnded=" + dateEnded +
-                ", interestRateAnno=" + interestRateAnno +
+                ", interestRateAnno=" + annualPercentageYield +
                 '}';
     }
 }

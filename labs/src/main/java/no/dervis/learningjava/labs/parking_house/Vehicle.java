@@ -7,9 +7,9 @@ package no.dervis.learningjava.labs.parking_house;
  * people or things.
  */
 public abstract class Vehicle {
-    private LicensePlateNumber plateNr;
+    private final LicensePlateNumber plateNr;
 
-    private VehicleType vehicleType;
+    private final VehicleType vehicleType;
 
 
     public Vehicle(VehicleType vehicleType, LicensePlateNumber plateNr) {

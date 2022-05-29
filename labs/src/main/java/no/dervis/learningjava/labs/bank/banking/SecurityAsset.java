@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class SecurityAsset implements Asset {
 
-    private BigDecimal value;
+    private final BigDecimal value;
 
     // can use these assets only if its value is higher than the loan applied
     public enum SecurityType {
@@ -13,7 +13,7 @@ public class SecurityAsset implements Asset {
         JEWELLERY
     }
 
-    private SecurityType securityType;
+    private final SecurityType securityType;
 
     public SecurityAsset(BigDecimal value, SecurityType securityType) {
         this.value = value;

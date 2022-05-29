@@ -10,7 +10,7 @@ public class Lambda {
     double tax = 0.20;
 
     class Employee {
-        private int salary;
+        private final int salary;
         public Employee(int salary) { this.salary = salary; }
         public String toString() { return "Employee{ salary=" + salary + '}'; }
     }
