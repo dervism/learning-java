@@ -7,12 +7,12 @@ import static no.dervis.learningjava.tools.Strings.printf;
 
 public class Composition {
 
-    private BinaryOperator<Double> divide = (a, b) -> a / b;
+    private final BinaryOperator<Double> divide = (a, b) -> a / b;
 
-    private BinaryOperator<Double> multiply = (a, b) -> a * b;
+    private final BinaryOperator<Double> multiply = (a, b) -> a * b;
 
     // composes a new function using other functions
-    private BinaryOperator<Double> percentOf = (a, b) -> multiply.apply(divide.apply(a, b), 100d);
+    private final BinaryOperator<Double> percentOf = (a, b) -> multiply.apply(divide.apply(a, b), 100d);
 
 
     private void testLambdaCalc() {

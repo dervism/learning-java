@@ -6,9 +6,11 @@ public class SecurityAsset implements Asset {
 
     private BigDecimal value;
 
+    // can use these assets only if its value is higher than the loan applied
     public enum SecurityType {
         HOME,
-        JEWELLERY, CAR // can use these only if you owe less than the value
+        CAR,
+        JEWELLERY
     }
 
     private SecurityType securityType;

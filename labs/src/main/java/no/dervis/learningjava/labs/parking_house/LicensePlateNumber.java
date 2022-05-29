@@ -2,17 +2,7 @@ package no.dervis.learningjava.labs.parking_house;
 
 import java.util.Objects;
 
-public class LicensePlateNumber {
-
-    private String plateNr;
-
-    public LicensePlateNumber(String plateNr) {
-        this.plateNr = plateNr;
-    }
-
-    public String getPlateNr() {
-        return plateNr;
-    }
+public record LicensePlateNumber(String plateNr) {
 
     @Override
     public String toString() {
@@ -27,8 +17,4 @@ public class LicensePlateNumber {
         return Objects.equals(plateNr, that.plateNr);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(plateNr);
-    }
 }

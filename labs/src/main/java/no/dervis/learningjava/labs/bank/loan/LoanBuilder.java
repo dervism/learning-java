@@ -1,6 +1,5 @@
 package no.dervis.learningjava.labs.bank.loan;
 
-import no.dervis.learningjava.labs.bank.BankCustomer;
 import no.dervis.learningjava.labs.bank.banking.Asset;
 
 public class LoanBuilder {
@@ -9,12 +8,6 @@ public class LoanBuilder {
 
     public LoanBuilder() {
 
-    }
-
-
-    public LoanBuilder withCustomer(BankCustomer customer) {
-
-        return this;
     }
 
     public LoanBuilder withInterestRate(double rate) {

@@ -22,15 +22,12 @@ public class Basel2Bank extends AbstractBank {
         super(capital);
     }
 
-    public BigDecimal calculateMinimumCapital() {
-
-        BigDecimal totalDeposit = this.bankAccounts
+    public BigDecimal calculateDepositCapital() {
+        return this.bankAccounts
                 .stream()
                 .map(BankAccount::getDepositAmount)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.valueOf(0.0D));
-
-        return totalDeposit;
     }
 
 }

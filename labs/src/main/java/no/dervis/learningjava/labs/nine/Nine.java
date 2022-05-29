@@ -2,7 +2,6 @@ package no.dervis.learningjava.labs.nine;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Nine {
@@ -17,7 +16,7 @@ public class Nine {
         IntStream.rangeClosed(1, 100).forEach(i -> {
             StringBuilder delta = new StringBuilder();
             int multiplied = multiplier * i;
-            delta.append("\n").append(multiplier + " * " + i + " = " + multiplied + " > ");
+            delta.append("\n").append(multiplier).append(" * ").append(i).append(" = ").append(multiplied).append(" > ");
             reduce(multiplied, delta);
             System.out.println(delta);
         });
@@ -34,12 +33,11 @@ public class Nine {
 
         List<String> strings = Arrays.asList(chars);
         List<Integer> ints = strings.stream()
-                .map(Integer::valueOf)
-                .collect(Collectors.toList());
+                .map(Integer::valueOf).toList();
 
 
         Integer deltaResult = ints.stream()
-                .reduce((i1, i2) -> i1 + i2)
+                .reduce(Integer::sum)
                 .orElse(0);
 
         if (String.valueOf(deltaResult).length() == 1) delta.append(deltaResult);

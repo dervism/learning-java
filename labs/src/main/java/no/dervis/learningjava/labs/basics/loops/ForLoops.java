@@ -2,17 +2,17 @@ package no.dervis.learningjava.labs.basics.loops;
 
 import static no.dervis.learningjava.tools.Headers.printHeader;
 
-public class Loops {
+public class ForLoops {
 
     public static void main(String[] args) {
 
-        printHeader("Normal for loops: ");
+        printHeader("Normal for-loop: ");
         for (int i = 0; i < 10; i++) {
             System.out.print(i + 1 + " ");
         }
 
 
-        printHeader("Reversed count: ");
+        printHeader("Reversed for-loop: ");
         for (int i = 10; i > 0; i--) {
             System.out.print(i + " ");
         }
@@ -26,7 +26,7 @@ public class Loops {
 
         printHeader("For loop without condition: ");
         for (int i = 0;;) {
-            if (i == 0 || i % 2 == 0)
+            if (i % 2 == 0)
                 System.out.print(i + " ");
             i++;
             if (i == 11) break;
@@ -42,7 +42,7 @@ public class Loops {
         }
 
 
-        printHeader("Nested loops 2 - printing a chess board: ");
+        printHeader("Nested loops 2 - printing a 2D chess board: ");
         String[][] board = {
                 {"a", "b", "c", "d", "e", "f", "g", "h"},
                 {"a", "b", "c", "d", "e", "f", "g", "h"},
@@ -55,7 +55,7 @@ public class Loops {
         };
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                System.out.print(board[i][j] + "" + i + " ");
+                System.out.print(board[i][j] + "" + (i+1) + " ");
             }
             System.out.println();
         }

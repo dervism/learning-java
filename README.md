@@ -7,7 +7,8 @@ This repo contains Java code examples for students learning the Java programming
 |collections|LinkedList examples|
 |integers|Number examples|
 |strings|String and text examples|
-|loops|Loop examples|
+|forloops|Loop examples|
+|foreachloops|Loop examples|
 |objects|Objects, interfaces and class examples|
 
 ## Running one specific example:

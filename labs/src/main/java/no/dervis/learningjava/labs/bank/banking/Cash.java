@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Cash implements Asset {
 
-    private BigDecimal value;
+    private final BigDecimal value;
 
     public Cash(BigDecimal value) {
         this.value = value;

@@ -11,6 +11,8 @@ public interface Bank {
 
     void addCapital(Capital newCapital);
 
+    void addLiability(Liability liability);
+
     BigDecimal getBankCapital();
 
     List<Asset> getAssets();

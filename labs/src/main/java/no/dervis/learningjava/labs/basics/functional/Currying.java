@@ -8,9 +8,9 @@ import static no.dervis.learningjava.tools.Strings.printf;
 
 public class Currying {
 
-    private BinaryOperator<Double> divide = (a, b) -> a / b;
-    private ExtendedBinaryOperator<Double> multiply = (a, b) -> a * b;
-    private Function<Double, Double> multiply100 = multiply.curry(100d);
+    private final BinaryOperator<Double> divide = (a, b) -> a / b;
+    private final ExtendedBinaryOperator<Double> multiply = (a, b) -> a * b;
+    private final Function<Double, Double> multiply100 = multiply.curry(100d);
 
 
     private void testLambdaCalc() {

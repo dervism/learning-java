@@ -28,7 +28,7 @@ public class Lambda {
 
     // lambda with a closure
     private List<Employee> highPaidLambdaClosure(List<Employee> emps) {
-        int threshold = 150;
+        final int threshold = 150;
 
         return emps.stream()
                 .filter(e -> e.salary > threshold)

@@ -9,10 +9,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static no.dervis.learningjava.labs.bank.banking.Cash.cash;
 
-public class AbstractBank implements Bank{
+public class AbstractBank implements Bank {
 
     protected BigDecimal capital;
 
@@ -22,24 +24,32 @@ public class AbstractBank implements Bank{
 
     protected List<Liability> liabilities;
 
-
     public AbstractBank(Capital... capital) {
+        this(new ArrayList<>(), capital);
+    }
+
+    public AbstractBank(List<Liability> liabilities, Capital... capital) {
 
         // convert initial capital to money
-        this.capital = Arrays.asList(capital)
-                .stream()
+        this.capital = Arrays
+                .stream(capital)
                 .map(Capital::getCapitalValue)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.valueOf(0.0D));
 
         this.bankAccounts = new ArrayList<>();
         this.assets = new ArrayList<>();
-        this.liabilities = new ArrayList<>();
+        this.liabilities = liabilities;
     }
 
     @Override
     public void addCapital(Capital newCapital) {
         this.capital = capital.add(newCapital.getCapitalValue());
+    }
+
+    @Override
+    public void addLiability(Liability liability) {
+        this.liabilities.add(liability);
     }
 
     /**
@@ -69,20 +79,21 @@ public class AbstractBank implements Bank{
      */
     @Override
     public List<Asset> getAssets() {
-        assets = new ArrayList<>();
-        assets.add(new Cash(capital));
-
-        return assets;
+        return Stream
+                .concat(Stream.of(new Cash(capital)),
+                        assets.stream())
+                .collect(Collectors.toList());
     }
 
     /**
-     * Liabilities cover customer deposits, and money owed to other banks and bondholders
+     * Liabilities cover customer deposits (including interest rates),
+     * money owed to other banks, and bondholders.
      */
     @Override
     public List<Liability> getLiabilities() {
-        liabilities = new ArrayList<>();
-        liabilities.addAll(bankAccounts);
-
-        return liabilities;
+        return Stream
+                .concat(bankAccounts.stream(),
+                        liabilities.stream())
+                .collect(Collectors.toList());
     }
 }

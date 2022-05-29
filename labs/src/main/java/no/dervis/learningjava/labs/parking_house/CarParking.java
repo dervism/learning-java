@@ -14,7 +14,7 @@ public class CarParking extends AbstractParkingHouse {
     }
 
     @Override
-    public List<VehicleType> acceptedVehicleType() {
+    public List<VehicleType> acceptedVehicleTypes() {
         return Arrays.asList(VehicleType.CAR, VehicleType.BIKE);
     }
 

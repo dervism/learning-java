@@ -24,7 +24,7 @@ public abstract class AbstractParkingHouse implements ParkingHouse {
             throw new RuntimeException("There is no space left in this parking house.");
 
         VehicleType vehicleType = vehicle.getVehicleType();
-        if (!acceptedVehicleType().contains(vehicleType)) {
+        if (!acceptedVehicleTypes().contains(vehicleType)) {
             throw new ParkingException("This Parking House does not accept vehicles of type " + vehicleType);
         }
 
@@ -43,8 +43,8 @@ public abstract class AbstractParkingHouse implements ParkingHouse {
         Duration duration = parkingTicket.finish();
         double price = (duration.toHours() > 0 ? duration.toHours() : 1) * parkingCost().getCostPrHour();
 
-        System.out.println(String.format("%s has parked %s hours %s minutes and %s seconds. Total price: %s",
-                vehicle, duration.toHoursPart(), duration.toMinutesPart(), duration.toSecondsPart(), price));
+        System.out.printf("%s has parked %s hours %s minutes and %s seconds. Total price: %s%n",
+                vehicle, duration.toHoursPart(), duration.toMinutesPart(), duration.toSecondsPart(), price);
 
         return true;
     }

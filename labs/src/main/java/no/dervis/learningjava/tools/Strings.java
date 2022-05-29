@@ -18,7 +18,7 @@ public class Strings {
             String time = cols.get(i).secondsStr();
             int diff = maxLength - s.length();
             if (diff > 0) {
-                for (int j = 0; j < diff+1; j++) s.append(" ");
+                s.append(" ".repeat(Math.max(0, diff + 1)));
                 newList.add(String.format(s + "%s", time));
             } else {
                 newList.add(String.format(s + " %s", time));

@@ -3,7 +3,7 @@ plugins {
     id "java"
 }
 
-sourceCompatibility = 16
+sourceCompatibility = 17
 
 mainClassName = "no.dervis.learningjava.Main"
 

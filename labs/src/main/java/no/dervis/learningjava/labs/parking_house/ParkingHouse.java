@@ -3,7 +3,7 @@ package no.dervis.learningjava.labs.parking_house;
 import java.util.List;
 
 public interface ParkingHouse {
-    List<VehicleType> acceptedVehicleType();
+    List<VehicleType> acceptedVehicleTypes();
 
     ParkingCost parkingCost();
 

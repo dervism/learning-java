@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 
 public class DirectDepositInput {
 
-    private BigDecimal amount;
+    private final BigDecimal amount;
 
-    private BankAccount toBankAccount;
+    private final BankAccount toBankAccount;
 
     public DirectDepositInput(BigDecimal amount, BankAccount toBankAccount) {
         this.amount = amount;

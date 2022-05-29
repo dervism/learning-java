@@ -5,16 +5,12 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class ParkingTicket {
-    private String ticketId;
 
-    private long startTime;
-
+    private final String ticketId;
+    private final long startTime;
     private long endTime;
-
-    // where the vehicle is parked
-    private int parkingSlotNr;
-
-    private LicensePlateNumber licensePlateNumber;
+    private final int parkingSlotNr;
+    private final LicensePlateNumber licensePlateNumber;
 
     public ParkingTicket(LicensePlateNumber licensePlateNumber) {
         this(licensePlateNumber, System.nanoTime(), 0);
@@ -25,10 +21,10 @@ public class ParkingTicket {
     }
 
     public ParkingTicket(LicensePlateNumber licensePlateNumber, long startTime, int parkingSlotNr) {
-        this.startTime = startTime;
-        this.endTime = 0;
-        this.parkingSlotNr = parkingSlotNr;
         this.licensePlateNumber = licensePlateNumber;
+        this.startTime = startTime;
+        this.parkingSlotNr = parkingSlotNr;
+        this.endTime = 0;
         this.ticketId = UUID.randomUUID().toString();
     }
 

@@ -7,9 +7,7 @@ import static no.dervis.learningjava.labs.parking_house.LicensePlate.POLAND;
 
 public class LicensePlateBuilder {
 
-    private String number;
-
-    public LicensePlateBuilder() { }
+    private final String number;
 
     public LicensePlateBuilder(String number) {
         this.number = number;
@@ -17,14 +15,12 @@ public class LicensePlateBuilder {
 
     public static LicensePlateBuilder forCountry(final LicensePlate licensePlate) {
 
-        switch (licensePlate) {
-            case NORWAY:
-                return LicensePlateBuilder.pattern(NORWAY.getPattern());
-            case POLAND:
-                return LicensePlateBuilder.pattern(POLAND.getPattern());
-        }
+        return switch (licensePlate) {
+            case NORWAY -> LicensePlateBuilder.pattern(NORWAY.getPattern());
+            case POLAND -> LicensePlateBuilder.pattern(POLAND.getPattern());
+            default -> LicensePlateBuilder.pattern("LLLLL");
+        };
 
-        return LicensePlateBuilder.pattern("LLLLL");
     }
 
     public static LicensePlateBuilder pattern(final String pattern) {
@@ -34,15 +30,9 @@ public class LicensePlateBuilder {
         char[] chars = pattern.toCharArray();
         for (char patternChar : chars) {
             switch (patternChar) {
-                case 'L':
-                    buffer.append( (char) ('A' + random.nextInt('Z' - 'A' + 1)) );
-                    break;
-                case 'D':
-                    buffer.append( 1 + random.nextInt(9) );
-                    break;
-                default:
-                    buffer.append(patternChar);
-                    break;
+                case 'L' -> buffer.append((char) ('A' + random.nextInt('Z' - 'A' + 1)));
+                case 'D' -> buffer.append(1 + random.nextInt(9));
+                default -> buffer.append(patternChar);
             }
         }
 
